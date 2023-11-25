@@ -18,13 +18,11 @@ public class DistributoreBevande {
 	bevanda.put("Coca Zero:", 2.00f);
 	bevanda.put("Sprite:\t", 1.50f);
 	bevanda.put("Ace:\t", 2.50f);
-	for (String n:bevanda.keySet())
-		
+	
+	for (String n:bevanda.keySet())	
 	System.out.println(n + " " + bevanda.get(n) + "€");
 	}
-		
-		
-	
+				
 	public void inserisciMoneta (Float moneta) {
 	
 		if (moneta==0.50f)
@@ -32,9 +30,7 @@ public class DistributoreBevande {
 		else if (moneta==1.00f)
 			credito+=1.00f;
 		else if (moneta==2.00f)
-			credito+=2.00f;
-		
-				
+			credito+=2.00f;					
 	}
 	
 	public void erogaBevanda () {
