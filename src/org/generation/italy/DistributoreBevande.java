@@ -7,23 +7,23 @@ public class DistributoreBevande {
 	
 
 	private float credito;
-	private HashMap<String, Float> bevande = new HashMap<>();	
+	private HashMap<Integer, Bevanda> bevande = new HashMap<>();	
 	
 
 	public DistributoreBevande() { 
 
-		bevande.put("Fanta", 1.20f);
-		bevande.put("Coca", 1.50f);
-		bevande.put("Coca Zero", 2.00f);
-		bevande.put("Sprite", 1.50f);
-		bevande.put("Ace", 2.50f);
+		bevande.put(1, new Bevanda(1, "Fanta", 1.50f));
+		bevande.put(2, new Bevanda(2,"Coca", 1.50f));
+		bevande.put(3, new Bevanda(3,"Coca Zero", 2.00f));
+		bevande.put(4, new Bevanda(4,"Sprite", 1.50f));
+		bevande.put(5, new Bevanda(5,"Ace", 2.50f));
 		credito=0;
 	}
 
 	public void elencoBevande() {
 
-		for (String n : bevande.keySet())
-			System.out.println(n + " " + bevande.get(n) + "€");
+		for (Integer n : bevande.keySet())
+			System.out.println(n + " " + bevande.get(n).nome + " " +  bevande.get(n).prezzo + "€");
 	}
 
 	public void inserisciMoneta(Float moneta) {
