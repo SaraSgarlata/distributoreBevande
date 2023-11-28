@@ -36,6 +36,10 @@ public class DistributoreBevande {
 		System.out.println("credito: " + credito + "€");
 
 	}
+	
+	public void visualizzaQuantità(Integer codiceBevanda) {
+		System.out.println("quantità: " + bevande.get(codiceBevanda).quantitàDisponibile);
+	}
 
 	public void erogaBevanda(Integer codiceBevanda) {
 		if (bevande.containsKey(codiceBevanda)) {
@@ -56,6 +60,9 @@ public class DistributoreBevande {
 	public void caricaBevanda(Integer codiceBevanda, Integer quantita) {
 		if(bevande.containsKey(codiceBevanda))
 			bevande.get(codiceBevanda).carica(quantita);
+		
+			//bevande.get(codiceBevanda)  => recupera l'oggetto Bevanda con il codice specificato ("casella" dell'hashmap bevande)
+			//.carica(quantita) => sull'oggetto Bevanda recuperato chiamo il metodo carica()
 		else 
 			System.out.println("errore, Bibita non trovata");
 	}

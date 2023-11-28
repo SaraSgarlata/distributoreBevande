@@ -25,15 +25,17 @@ public class Main {
 		do {
 			System.out.println("\n\n\n\n\n\n");
 			// System.out.println("Quale bevanda desideri? ecco le disponibilità \n");
+			System.out.println("***** DISTRIBUTORE BEVANDE *****");
 			distributore.elencoBevande();
 			distributore.visualizzaCredito();
-			
+			System.out.println("********************************");
 			System.out.println("1 - inserisci moneta");
 			System.out.println("2 - scegli bevanda");
 			System.out.println("3 - carica bevanda");
-			System.out.println("4 - esci");
+			System.out.println("4 - visualizza quantità bevanda");
+			System.out.println("5 - esci");
 			
-			System.out.println("scegli le opzioni da 1 a 4");
+			System.out.println("scegli le opzioni da 1 a 5");
 			risposta=sc.nextLine();
 			
 			if(risposta.equals("1")) {
@@ -59,11 +61,25 @@ public class Main {
 				}else 
 					System.out.println("password errata");
 				
+			} else if (risposta.equals("4")) {
+				System.out.println("inserisci password");
+				password=sc.nextLine();
+				if(password.equals("12345")) {
+					
+					System.out.println("quale bevanda vuoi visualizzare?");
+					codiceBevanda = Integer.parseInt(sc.nextLine());
+					
+					distributore.visualizzaQuantità(codiceBevanda);
+				
+				}else 
+					System.out.println("password errata");
+				
 			}
 				
-			
+			System.out.println("Premi Enter per continuare...");
+			sc.nextLine();
 				
-		} while (!risposta.equals("4"));
+		} while (!risposta.equals("5"));
 		
 		
 		System.out.println("Arrivederci");
