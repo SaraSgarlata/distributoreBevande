@@ -39,15 +39,18 @@ public class DistributoreBevande {
 
 	public void erogaBevanda(Integer codiceBevanda) {
 		if (bevande.containsKey(codiceBevanda)) {
-			if (credito >= bevande.get(codiceBevanda).prezzo) {
-				credito -= bevande.get(codiceBevanda).prezzo;
-				System.out.println("la tua bevanda: " + bevande.get(codiceBevanda).nome);
-				System.out.println("il tuo resto: "+String.format("%.2f€", credito));
-				credito=0;
+			if (bevande.get(codiceBevanda).quantitàDisponibile > 0) {
+				if (credito >= bevande.get(codiceBevanda).prezzo) {
+					credito -= bevande.get(codiceBevanda).prezzo;
+					System.out.println("la tua bevanda: " + bevande.get(codiceBevanda).nome);
+					System.out.println("il tuo resto: " + String.format("%.2f€", credito));
+					credito = 0;
+					bevande.get(codiceBevanda).eroga();
+				} else
+					System.out.println("credito non sufficente");
 			} else
-				System.out.println("credito non sufficente");
+				System.out.println("prodotto esaurito");
 		} else
 			System.out.println("prodotto non disponibile");
-		
 	}
 }
