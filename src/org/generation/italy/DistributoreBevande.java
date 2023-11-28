@@ -37,11 +37,11 @@ public class DistributoreBevande {
 
 	}
 
-	public void erogaBevanda(String nomeBevanda) {
-		if (bevande.containsKey(nomeBevanda)) {
-			if (credito >= bevande.get(nomeBevanda)) {
-				credito -= bevande.get(nomeBevanda);
-				System.out.println("la tua bevanda:");
+	public void erogaBevanda(Integer codiceBevanda) {
+		if (bevande.containsKey(codiceBevanda)) {
+			if (credito >= bevande.get(codiceBevanda).prezzo) {
+				credito -= bevande.get(codiceBevanda).prezzo;
+				System.out.println("la tua bevanda: " + bevande.get(codiceBevanda).nome);
 				System.out.println("il tuo resto: "+String.format("%.2f€", credito));
 				credito=0;
 			} else

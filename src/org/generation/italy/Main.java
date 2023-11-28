@@ -8,7 +8,8 @@ public class Main {
 		
 		Scanner sc = new Scanner (System.in);
 		Float moneta;
-		String risposta,bevandaScelta;
+		int codiceBevanda;
+		String risposta;
 		DistributoreBevande distributore = new DistributoreBevande();
 		
 		
@@ -26,8 +27,8 @@ public class Main {
 		
 		do {
 			System.out.println("scegli una bevanda");
-			bevandaScelta=sc.nextLine();
-			distributore.erogaBevanda(bevandaScelta);
+			codiceBevanda=Integer.parseInt(sc.nextLine());
+			distributore.erogaBevanda(codiceBevanda);
 			System.out.println("il tuo credito ora: ");
 			distributore.visualizzaCredito();
 			System.out.println("vuoi altro?");
