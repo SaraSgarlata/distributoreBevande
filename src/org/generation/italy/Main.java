@@ -6,6 +6,16 @@ public class Main {
 
 	public static void main(String[] args) {
 		
+		/*Modificare la classe Main facendo in modo che venga visualizzato un menu di scelta con queste opzioni:
+
+			1) Inserisci moneta
+			2) Scegli bevanda
+			3) Carica bevanda
+			4) Esci
+			
+			Ogni volta che si visualizza il menu bisogna visualizzare l'elenco delle bevande disponibili (per ogni bevanda visualizzare: codice, nome, prezzo).
+			La voce 3 (carica bevanda) è accessibile solo inserendo la password "12345"*/
+		
 		Scanner sc = new Scanner (System.in);
 		Float moneta;
 		int codiceBevanda;
