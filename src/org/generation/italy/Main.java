@@ -18,32 +18,52 @@ public class Main {
 		
 		Scanner sc = new Scanner (System.in);
 		Float moneta;
-		int codiceBevanda;
-		String risposta;
+		int codiceBevanda, quantita;
+		String risposta, password;
 		DistributoreBevande distributore = new DistributoreBevande();
 		
 		do {
-
-			System.out.println("Quale bevanda desideri? ecco le disponibilità \n");
+			System.out.println("\n\n\n\n\n\n");
+			// System.out.println("Quale bevanda desideri? ecco le disponibilità \n");
 			distributore.elencoBevande();
-
-			do {
+			distributore.visualizzaCredito();
+			
+			System.out.println("1 - inserisci moneta");
+			System.out.println("2 - scegli bevanda");
+			System.out.println("3 - carica bevanda");
+			System.out.println("4 - esci");
+			
+			System.out.println("scegli le opzioni da 1 a 4");
+			risposta=sc.nextLine();
+			
+			if(risposta.equals("1")) {
 				System.out.println("\nPuoi inserire monete da: 0.50/1.00/2.00 €");
 				moneta = Float.parseFloat(sc.nextLine());
 				distributore.inserisciMoneta(moneta);
-				distributore.visualizzaCredito();
-				System.out.println("vuoi inserire altre monete?");
-				risposta = sc.nextLine();
-			} while (risposta.equals("si"));
-
-			System.out.println("scegli numero bevanda");
-			codiceBevanda = Integer.parseInt(sc.nextLine());
-			distributore.erogaBevanda(codiceBevanda);
-			System.out.println("il tuo credito ora: ");
-			distributore.visualizzaCredito();
-			System.out.println("vuoi altro?");
-			risposta = sc.nextLine();
-		} while (risposta.equals("si"));
+			}else if (risposta.equals("2")) {
+				
+				System.out.println("scegli numero bevanda");
+				codiceBevanda = Integer.parseInt(sc.nextLine());
+				distributore.erogaBevanda(codiceBevanda);
+			} else if (risposta.equals("3")) {
+				System.out.println("inserisci password");
+				password=sc.nextLine();
+				if(password.equals("12345")) {
+					
+					System.out.println("quale bevanda vuoi caricare?");
+					codiceBevanda = Integer.parseInt(sc.nextLine());
+					System.out.println("quanta ne vuoi caricare");
+					quantita= Integer.parseInt(sc.nextLine());
+					distributore.caricaBevanda(codiceBevanda, quantita);
+				
+				}else 
+					System.out.println("password errata");
+				
+			}
+				
+			
+				
+		} while (!risposta.equals("4"));
 		
 		
 		System.out.println("Arrivederci");

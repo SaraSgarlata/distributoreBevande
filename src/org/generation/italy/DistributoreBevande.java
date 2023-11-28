@@ -53,4 +53,10 @@ public class DistributoreBevande {
 		} else
 			System.out.println("prodotto non disponibile");
 	}
+	public void caricaBevanda(Integer codiceBevanda, Integer quantita) {
+		if(bevande.containsKey(codiceBevanda))
+			bevande.get(codiceBevanda).carica(quantita);
+		else 
+			System.out.println("errore, Bibita non trovata");
+	}
 }
