@@ -83,6 +83,7 @@ public class Main {
 		
 		
 		System.out.println("Arrivederci");
+		sc.close();
 	}
 
 }

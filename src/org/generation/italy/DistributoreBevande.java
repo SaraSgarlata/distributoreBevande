@@ -7,7 +7,7 @@ public class DistributoreBevande {
 	
 
 	private float credito;
-	private HashMap<Integer, Bevanda> bevande = new HashMap<>();	
+	public HashMap<Integer, Bevanda> bevande = new HashMap<>();	
 	
 
 	public DistributoreBevande() { 
@@ -23,7 +23,7 @@ public class DistributoreBevande {
 	public void elencoBevande() {
 
 		for (Integer n : bevande.keySet())
-			System.out.println(n + " " + bevande.get(n).nome + " " +  bevande.get(n).prezzo + "€");
+			System.out.println(n + " " + bevande.get(n).getNome() + " " +  bevande.get(n).getPrezzo() + "€");
 	}
 
 	public void inserisciMoneta(Float moneta) {
@@ -38,15 +38,16 @@ public class DistributoreBevande {
 	}
 	
 	public void visualizzaQuantità(Integer codiceBevanda) {
-		System.out.println("quantità: " + bevande.get(codiceBevanda).quantitàDisponibile);
+		System.out.println("quantità: " + bevande.get(codiceBevanda).getQuantitàDisponibile());
 	}
 
 	public void erogaBevanda(Integer codiceBevanda) {
 		if (bevande.containsKey(codiceBevanda)) {
-			if (bevande.get(codiceBevanda).quantitàDisponibile > 0) {
-				if (credito >= bevande.get(codiceBevanda).prezzo) {
-					credito -= bevande.get(codiceBevanda).prezzo;
-					System.out.println("la tua bevanda: " + bevande.get(codiceBevanda).nome);
+			if (bevande.get(codiceBevanda).getQuantitàDisponibile() > 0) {
+				if (credito >= bevande.get(codiceBevanda).getPrezzo()) {
+					credito -= bevande.get(codiceBevanda).getPrezzo();
+					System.out.println("Hai selezionato: " + bevande.get(codiceBevanda).getNome());
+					System.out.println("La quantità di zucchero è: "+bevande.get(codiceBevanda).zuccheroBevanda());
 					System.out.println("il tuo resto: " + String.format("%.2f€", credito));
 					credito = 0;
 					bevande.get(codiceBevanda).eroga();
@@ -59,10 +60,10 @@ public class DistributoreBevande {
 	}
 	public void caricaBevanda(Integer codiceBevanda, Integer quantita) {
 		if(bevande.containsKey(codiceBevanda))
-			bevande.get(codiceBevanda).carica(quantita);
+			bevande.get(codiceBevanda).carica(quantita);						  
 		
-			//bevande.get(codiceBevanda)  => recupera l'oggetto Bevanda con il codice specificato ("casella" dell'hashmap bevande)
-			//.carica(quantita) => sull'oggetto Bevanda recuperato chiamo il metodo carica()
+			
+			
 		else 
 			System.out.println("errore, Bibita non trovata");
 	}
